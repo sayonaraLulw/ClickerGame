@@ -7,6 +7,7 @@ import javax.swing.*;
 
 public class GUI  extends JFrame implements ActionListener{
 
+	//variables
 	JLabel score = new JLabel();
 	JButton clicker = new JButton("press");
 	JButton upgrade = new JButton("upgrade");
@@ -16,31 +17,39 @@ public class GUI  extends JFrame implements ActionListener{
 	
 	public GUI(Logic logic) {
 		
+		//layout
 		setLayout(new BorderLayout());
 
+		//connection to logic
 		this.logic = logic;
 		
-		
+		//add score to NORTH
 		add(score, BorderLayout.NORTH);
 		
+		//add clicker button to CENTER
 		clicker.addActionListener(this);
 		add(clicker, BorderLayout.CENTER);
 		
+		//add upgrade button to SOUTH
 		upgrade.addActionListener(this);
 		add(upgrade, BorderLayout.SOUTH);
 		
+		//default swing options
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(600, 800);
 		setVisible(true);
 		
 	}
 	
+	//button actions
 	public void actionPerformed(ActionEvent e) {
 		
+		//if clicker button is pressed
 		if(e.getSource() == clicker) {
 			logic.addScore(logic.power);
 			refreshScore();
 		}
+		//if upgrade button is pressed
 		else if(e.getSource() == upgrade) {
 			logic.addPower(1, 10);
 			refreshScore();
@@ -48,10 +57,12 @@ public class GUI  extends JFrame implements ActionListener{
 		
 	
 	}
+	//refreshes the score
 	public void refreshScore() {
 		score.setText(String.valueOf(logic.score));
 	}
 	
+	//gives error message if you don't have enough score
 	public void notEnoughScore(int amount) {
 		String st = "You don't have enough score. You need " + amount + " more score";
 		JOptionPane.showMessageDialog(null, st);
