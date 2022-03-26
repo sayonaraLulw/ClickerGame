@@ -5,18 +5,17 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
-public class GUI  extends JFrame implements ActionListener{
+@SuppressWarnings("serial")
+public class GUI extends JFrame implements ActionListener{
 
 	//variables
 	JLabel score = new JLabel();
 	JButton clicker = new JButton("press");
 	JButton upgrade = new JButton("upgrade");
-	
-	
+
 	Logic logic;
 	
 	public GUI(Logic logic) {
-		
 		//layout
 		setLayout(new BorderLayout());
 
@@ -51,11 +50,10 @@ public class GUI  extends JFrame implements ActionListener{
 		}
 		//if upgrade button is pressed
 		else if(e.getSource() == upgrade) {
-			logic.addPower(1, 10);
 			refreshScore();
+			new GUI_Shop(logic.score);
+			//logic.addPower(1, 10);
 		}
-		
-	
 	}
 	//refreshes the score
 	public void refreshScore() {
