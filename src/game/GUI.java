@@ -10,8 +10,8 @@ public class GUI extends JFrame implements ActionListener{
 
 	//variables
 	JLabel score = new JLabel();
-	JButton clicker = new JButton("press");
-	JButton upgrade = new JButton("upgrade");
+	JButton clicker = new JButton("Click!");
+	JButton shop = new JButton("Shop");
 
 	Logic logic;
 	
@@ -30,8 +30,8 @@ public class GUI extends JFrame implements ActionListener{
 		add(clicker, BorderLayout.CENTER);
 		
 		//add upgrade button to SOUTH
-		upgrade.addActionListener(this);
-		add(upgrade, BorderLayout.SOUTH);
+		shop.addActionListener(this);
+		add(shop, BorderLayout.SOUTH);
 		
 		//default swing options
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -49,7 +49,7 @@ public class GUI extends JFrame implements ActionListener{
 			refreshScore();
 		}
 		//if upgrade button is pressed
-		else if(e.getSource() == upgrade) {
+		else if(e.getSource() == shop) {
 			refreshScore();
 			new GUI_Shop(logic.score);
 			//logic.addPower(1, 10);
