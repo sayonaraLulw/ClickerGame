@@ -1,8 +1,9 @@
-package Game;
+package game;
 
 public class Logic {
+	GUI g = new GUI(this);
 
-	int score = 0;
+	protected int score = 0;
 	
 	public void addScore(int amount) {
 		score += amount;
