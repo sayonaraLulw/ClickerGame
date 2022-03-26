@@ -2,7 +2,8 @@
  * 
  * ToDo:
  * - Score update on score change (after buying power up)
- * 
+ * - PowerUp system (general)
+ * - PowerUp-Level system
  * */
 
 package game;
