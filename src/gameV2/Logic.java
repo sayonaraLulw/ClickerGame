@@ -20,4 +20,8 @@ public class Logic {
 	protected void addAutoclick(int amount) {
 		stats.setAutoclick(stats.getAutoclick() + amount);
 	}
+	
+	protected int getScore() {
+		return stats.getScore();
+	}
 }

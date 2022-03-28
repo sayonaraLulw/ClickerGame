@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+@SuppressWarnings("serial")
 public class GUI extends JFrame implements ActionListener{
 
 	// Variables
@@ -17,9 +18,8 @@ public class GUI extends JFrame implements ActionListener{
 	JButton shop = new JButton("Shop");
 
 	Logic logic;
-	Stats stats;
 	
-	public GUI() {
+	public GUI() {		
 		// Layout
 		setLayout(new BorderLayout());
 		
@@ -44,12 +44,16 @@ public class GUI extends JFrame implements ActionListener{
 	// Button actions
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == shop) {
-			System.out.println(stats.getScore());
+			new GUI_Shop(0);
+		}
+		else if(e.getSource() == clicker) {
+			logic.addScore(1);
+			refreshScore();
 		}
 	}
 	// Refreshes the score
 	public void refreshScore() {
-		score.setText(String.valueOf(stats.getScore()));
+		score.setText(String.valueOf(logic.getScore()));
 	}
 	
 	// Gives error message if you don't have enough score

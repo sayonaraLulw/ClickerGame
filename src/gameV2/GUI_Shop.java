@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+@SuppressWarnings("serial")
 public class GUI_Shop extends JFrame implements ActionListener{
 	// Variables
 	JLabel shop = new JLabel();
@@ -50,6 +51,15 @@ public class GUI_Shop extends JFrame implements ActionListener{
 		// Swing defaults
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setSize(600, 800);
+		setVisible(true);
+	}
+	// Hide GUI
+	public void hideGUI() {
+		setVisible(false);
+	}
+	
+	// Show GUI
+	public void showGUI() {
 		setVisible(true);
 	}
 	
