@@ -1,5 +1,12 @@
 package powerUps;
 
-public class PowerClick {
-
+public class PowerClick extends PowerUp {
+	
+	public PowerClick(int level) {
+		super(level);
+	}
+	
+	
+	
 }
+

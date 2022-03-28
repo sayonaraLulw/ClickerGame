@@ -1,8 +1,11 @@
 package gameV2;
 
+import powerUps.*;
+
 public class Logic {
 	// Initialize stats
 	Stats stats = new Stats();
+	PowerClick powerclick = new PowerClick(0);
 	
 	// Methods
 	protected void addScore(int amount) {
@@ -32,5 +35,8 @@ public class Logic {
 	
 	public int getAutoclick() {
 		return stats.getAutoclick();
+	}
+	protected void calculateClick() {
+
 	}
 }
