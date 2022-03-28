@@ -8,7 +8,7 @@ import javax.swing.*;
 @SuppressWarnings("serial")
 public class GUI extends JFrame implements ActionListener{
 
-	//variables
+	// Variables
 	JLabel score = new JLabel();
 	JButton clicker = new JButton("Click!");
 	JButton shop = new JButton("Shop");
@@ -16,24 +16,24 @@ public class GUI extends JFrame implements ActionListener{
 	Logic logic;
 	
 	public GUI(Logic logic) {
-		//layout
+		// Layout
 		setLayout(new BorderLayout());
 
-		//connection to logic
+		// connection to logic
 		this.logic = logic;
 		
-		//add score to NORTH
+		// add score to NORTH
 		add(score, BorderLayout.NORTH);
 		
-		//add clicker button to CENTER
+		// add clicker button to CENTER
 		clicker.addActionListener(this);
 		add(clicker, BorderLayout.CENTER);
 		
-		//add upgrade button to SOUTH
+		// add upgrade button to SOUTH
 		shop.addActionListener(this);
 		add(shop, BorderLayout.SOUTH);
 		
-		//default swing options
+		// default swing options
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(600, 800);
 		setVisible(true);
