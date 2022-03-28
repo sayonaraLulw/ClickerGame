@@ -1,11 +1,14 @@
-package game;
+package gameV2;
 
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
-@SuppressWarnings("serial")
 public class GUI extends JFrame implements ActionListener{
 
 	// Variables
@@ -14,53 +17,42 @@ public class GUI extends JFrame implements ActionListener{
 	JButton shop = new JButton("Shop");
 
 	Logic logic;
+	Stats stats;
 	
 	public GUI() {
 		// Layout
 		setLayout(new BorderLayout());
-
-		// connection to logic
-		this.logic = logic;
 		
-		// add score to NORTH
+		// Add score to NORTH
 		add(score, BorderLayout.NORTH);
 		
-		// add clicker button to CENTER
+		// Add clicker button to CENTER
 		clicker.addActionListener(this);
 		add(clicker, BorderLayout.CENTER);
 		
-		// add upgrade button to SOUTH
+		// Add upgrade button to SOUTH
 		shop.addActionListener(this);
 		add(shop, BorderLayout.SOUTH);
 		
-		// default swing options
+		// Default swing options
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(600, 800);
 		setVisible(true);
 		
 	}
 	
-	//button actions
+	// Button actions
 	public void actionPerformed(ActionEvent e) {
-		
-		//if clicker button is pressed
-		if(e.getSource() == clicker) {
-			logic.addScore(logic.power);
-			refreshScore();
-		}
-		//if upgrade button is pressed
-		else if(e.getSource() == shop) {
-			refreshScore();
-			new GUI_Shop(logic.score);
-			//logic.addPower(1, 10);
+		if(e.getSource() == shop) {
+			System.out.println(stats.getScore());
 		}
 	}
-	//refreshes the score
+	// Refreshes the score
 	public void refreshScore() {
-		score.setText(String.valueOf(logic.score));
+		score.setText(String.valueOf(stats.getScore()));
 	}
 	
-	//gives error message if you don't have enough score
+	// Gives error message if you don't have enough score
 	public void notEnoughScore(int amount) {
 		String st = "You don't have enough score. You need " + amount + " more score";
 		JOptionPane.showMessageDialog(null, st);

@@ -2,7 +2,7 @@ package game;
 
 public class Logic {
 	//creates GUI
-	GUI g = new GUI(this);
+	//GUI g = new GUI(this);
 
 	//variables
 	protected int score = 0;
@@ -25,7 +25,7 @@ public class Logic {
 			removeScore(price);
 		}
 		else {
-			g.notEnoughScore(price-score);
+			//g.notEnoughScore(price-score);
 		}
 	}
 }
