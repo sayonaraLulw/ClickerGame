@@ -17,7 +17,7 @@ public class GUI extends JFrame implements ActionListener{
 	JButton clicker = new JButton("Click!");
 	JButton shop = new JButton("Shop");
 
-	Logic logic;
+	Logic logic = new Logic();
 	
 	public GUI() {		
 		// Layout
