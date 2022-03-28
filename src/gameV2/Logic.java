@@ -21,7 +21,16 @@ public class Logic {
 		stats.setAutoclick(stats.getAutoclick() + amount);
 	}
 	
+	// Get from Stats
 	protected int getScore() {
 		return stats.getScore();
+	}
+	
+	public int getPower() {
+		return stats.getPower();
+	}
+	
+	public int getAutoclick() {
+		return stats.getAutoclick();
 	}
 }
