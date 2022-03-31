@@ -11,6 +11,10 @@ public class Logic {
 	
 	public Logic() {
 		// Add powerups
+		PowerClick powerclick = new PowerClick(stats.getPowerclickLevel());
+		CritClick critclick = new CritClick(stats.getCritclickLevel());
+		powerups.add(powerclick);
+		powerups.add(critclick);
 	}
 	
 	// Methods
@@ -37,10 +41,12 @@ public class Logic {
 	// Click calls 
 	protected void Click() {
 		int power = 1;
-		PowerClick powerclick = new PowerClick(stats.getPowerclickLevel(), power);
-		power = powerclick.getPower();
-		CritClick critclick = new CritClick(stats.getCritclickLevel(), power);
-		power = critclick.getPower();
+		
+		 for (int i = 0; i < powerups.size(); i++) {
+			 	PowerUp p = powerups.get(i);
+			 	power = p.getPower(power);;
+	        }
+		
 		addScore(power);
 	}
 }

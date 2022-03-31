@@ -4,7 +4,7 @@ public class Stats {
 	// Variables
 	private int score = 0;
 	private int autoclickLevel = 0;
-	private int powerclickLevel = 0;
+	private int powerclickLevel = 1;
 	private int critclickLevel = 0;
 	
 	

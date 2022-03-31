@@ -6,25 +6,25 @@ import java.util.Random;
 
 public class CritClick extends PowerUp{
 
-	public CritClick(int level, int power) {
-		super(level, power);
+	public CritClick(int level) {
+		super(level);
 	}
 	
 	
 	
-	public int getPower() {
+	public int getPower(int power) {
 		Random rand = new Random();
 		
 		// Calculate the chance to crit
 		boolean crithit = (rand.nextInt(100) < super.getLevel());
-		
+		System.out.println(crithit);
 		// Calculate the new Power of the click
-		if (crithit = true) {
-			int power = super.getPower() * 2;
+		if (crithit == true) {
+			power = power * 2;
 			return power;
 		}
 		else {
-			return super.getPower();
+			return power;
 		}
 		
 	}

@@ -19,7 +19,8 @@ public class GUI extends JFrame implements ActionListener{
 
 	Logic logic = new Logic();
 	
-	public GUI() {		
+	
+	public GUI() {	
 		// Layout
 		setLayout(new BorderLayout());
 		
@@ -47,7 +48,7 @@ public class GUI extends JFrame implements ActionListener{
 			new GUI_Shop(0);
 		}
 		else if(e.getSource() == clicker) {
-			logic.addScore(1);
+			logic.Click();
 			refreshScore();
 		}
 	}

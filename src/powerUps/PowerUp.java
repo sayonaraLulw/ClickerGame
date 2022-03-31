@@ -6,19 +6,17 @@ public class PowerUp {
 
 	// Variables
 	private int level;
-	private int power;
 	
-	public PowerUp(int level, int power) {
+	public PowerUp(int level) {
 		this.level = level;
-		this.power = power;
 	}
 	
 	// Get Level and Power
-	protected int getLevel() {
+	public int getLevel() {
 		return level;
 	}
 	
-	protected int getPower() {
+	public int getPower(int power) {
 		return power;
 	}
 }
