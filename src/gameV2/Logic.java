@@ -1,11 +1,21 @@
 package gameV2;
 
+import java.util.ArrayList;
+
 import powerUps.*;
 
 public class Logic {
 	// Initialize stats
 	Stats stats = new Stats();
-	PowerClick powerclick = new PowerClick(0);
+	ArrayList<PowerUp> powerups = new ArrayList<PowerUp>();
+	
+	public Logic() {
+		// Add powerups
+		PowerClick powerclick = new PowerClick(stats.getPowerclickLevel());
+		CritClick critclick = new CritClick(stats.getCritclickLevel());
+		powerups.add(powerclick);
+		powerups.add(critclick);
+	}
 	
 	// Methods
 	protected void addScore(int amount) {
@@ -17,11 +27,11 @@ public class Logic {
 	}
 	
 	protected void addPower(int amount) {
-		stats.setPower(stats.getPower() + amount);
+		stats.setPowerclickLevel(stats.getPowerclickLevel() + amount);
 	}
 	
 	protected void addAutoclick(int amount) {
-		stats.setAutoclick(stats.getAutoclick() + amount);
+		stats.setAutoclickLevel(stats.getAutoclickLevel() + amount);
 	}
 	
 	// Get from Stats
@@ -29,14 +39,15 @@ public class Logic {
 		return stats.getScore();
 	}
 	
-	public int getPower() {
-		return stats.getPower();
-	}
-	
-	public int getAutoclick() {
-		return stats.getAutoclick();
-	}
-	protected void calculateClick() {
-
+	// Click calls 
+	protected void Click() {
+		int power = 1;
+		
+		 for (int i = 0; i < powerups.size(); i++) {
+			 	PowerUp p = powerups.get(i);
+			 	power = p.getPower(power);;
+	        }
+		
+		addScore(power);
 	}
 }

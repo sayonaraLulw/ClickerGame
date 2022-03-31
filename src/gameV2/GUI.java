@@ -35,7 +35,8 @@ public class GUI extends JFrame implements ActionListener{
 	JButton clicker = new JButton("Click!");
 	JButton shop = new JButton("Shop");
 	
-	public GUI() {		
+	
+	public GUI() {	
 		// Layout
 		guiGame.setLayout(new BorderLayout());
 		
@@ -98,7 +99,7 @@ public class GUI extends JFrame implements ActionListener{
 			GUI_Shop(logic.getScore());
 		}
 		else if(e.getSource() == clicker) {
-			logic.addScore(1); //Add PowerUp
+			logic.Click();
 			refreshScore();
 		}
 		else if(e.getSource() == powerUp1) { // Powerclick

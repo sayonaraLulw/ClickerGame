@@ -3,8 +3,10 @@ package gameV2;
 public class Stats {
 	// Variables
 	private int score = 0;
-	private int power = 0;
-	private int autoclick = 0;
+	private int autoclickLevel = 0;
+	private int powerclickLevel = 1;
+	private int critclickLevel = 0;
+	
 	
 	// Getter and setter
 	public int getScore() {
@@ -13,16 +15,22 @@ public class Stats {
 	public void setScore(int score) {
 		this.score = score;
 	}
-	public int getPower() {
-		return power;
+	public int getAutoclickLevel() {
+		return autoclickLevel;
 	}
-	public void setPower(int power) {
-		this.power = power;
+	public void setAutoclickLevel(int autoclickLevel) {
+		this.autoclickLevel = autoclickLevel;
 	}
-	public int getAutoclick() {
-		return autoclick;
+	public int getPowerclickLevel() {
+		return powerclickLevel;
 	}
-	public void setAutoclick(int autoclick) {
-		this.autoclick = autoclick;
+	public void setPowerclickLevel(int powerclickLevel) {
+		this.powerclickLevel = powerclickLevel;
+	}
+	public int getCritclickLevel() {
+		return critclickLevel;
+	}
+	public void setCritclickLevel(int critclickLevel) {
+		this.critclickLevel = critclickLevel;
 	}
 }
