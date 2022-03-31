@@ -34,11 +34,6 @@ public class Logic {
 		stats.setAutoclickLevel(stats.getAutoclickLevel() + amount);
 	}
 	
-	// Get from Stats
-	protected int getScore() {
-		return stats.getScore();
-	}
-	
 	// Click calls 
 	protected void Click() {
 		int power = 1;

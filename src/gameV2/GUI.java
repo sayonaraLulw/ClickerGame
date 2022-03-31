@@ -20,8 +20,8 @@ public class GUI extends JFrame implements ActionListener{
 	// Variables Shop
 	JFrame guiShop = new JFrame();
 	JLabel shopScore = new JLabel();
-	JLabel pupLvl1 = new JLabel("Level " + logic.stats.getPower(), SwingConstants.CENTER);
-	JLabel pupLvl2 = new JLabel("Level " + logic.stats.getAutoclick(), SwingConstants.CENTER);
+	JLabel pupLvl1 = new JLabel("Level " + logic.stats.getPowerclickLevel(), SwingConstants.CENTER);
+	JLabel pupLvl2 = new JLabel("Level " + logic.stats.getAutoclickLevel(), SwingConstants.CENTER);
 	JLabel pupLvl3 = new JLabel("Level 1", SwingConstants.CENTER);
 	JButton powerUp1 = new JButton("Powerclick");
 	JButton powerUp2 = new JButton("Autoclick");
@@ -96,7 +96,7 @@ public class GUI extends JFrame implements ActionListener{
 	// Button actions
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == shop) {
-			GUI_Shop(logic.getScore());
+			GUI_Shop(logic.stats.getScore());
 		}
 		else if(e.getSource() == clicker) {
 			logic.Click();
@@ -104,11 +104,11 @@ public class GUI extends JFrame implements ActionListener{
 		}
 		else if(e.getSource() == powerUp1) { // Powerclick
 			logic.addPower(1);
-			pupLvl1.setText("Level " + logic.stats.getPower());
+			pupLvl1.setText("Level " + logic.stats.getPowerclickLevel());
 		}
 		else if(e.getSource() == powerUp2) { // Autoclick
 			logic.addAutoclick(1);
-			pupLvl2.setText("Level " + logic.stats.getAutoclick());
+			pupLvl2.setText("Level " + logic.stats.getAutoclickLevel());
 		}
 		else if(e.getSource() == powerUp3) {
 			
@@ -119,7 +119,7 @@ public class GUI extends JFrame implements ActionListener{
 	}
 	// Refreshes the score
 	public void refreshScore() {
-		score.setText(String.valueOf(logic.getScore()));
+		score.setText(String.valueOf(logic.stats.getScore()));
 	}
 	
 	// Gives error message if you don't have enough score
