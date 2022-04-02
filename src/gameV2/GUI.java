@@ -55,7 +55,6 @@ public class GUI extends JFrame implements ActionListener{
 		guiGame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		guiGame.setSize(600, 800);
 		guiGame.setVisible(true);
-		
 	}
 	
 	// GUI_Shop
@@ -65,7 +64,7 @@ public class GUI extends JFrame implements ActionListener{
 		shopElements.setLayout(new GridLayout(3, 2));
 		
 		// JLabel
-		shopScore = new JLabel("Shop - Score: " + score);
+		shopScore.setText("Shop - Score: " + String.valueOf(logic.stats.getScore()));
 		guiShop.add(shopScore, BorderLayout.NORTH);
 		
 		// Shop elements
@@ -120,7 +119,8 @@ public class GUI extends JFrame implements ActionListener{
 	}
 	// Refreshes the score
 	public void refreshScore() {
-		score.setText(String.valueOf(logic.stats.getScore()));
+		score.setText("Score: " + String.valueOf(logic.stats.getScore()));
+		shopScore.setText("Shop - Score: " + String.valueOf(logic.stats.getScore()));
 	}
 	
 	// Gives error message if you don't have enough score
