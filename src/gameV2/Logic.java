@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import powerUps.*;
 
-public class Logic implements Runnable{
+public class Logic{
 	// Initialize stats
 	Stats stats = new Stats();
 	ArrayList<PowerUp> powerups = new ArrayList<PowerUp>();
@@ -24,7 +24,6 @@ public class Logic implements Runnable{
 	
 	protected void addAutoclick() {
 		stats.setAutoclickLevel(stats.getAutoclickLevel() + 1);
-		refreshAutoClick();
 	}
 	
 	protected void addCritclick() {
@@ -39,11 +38,6 @@ public class Logic implements Runnable{
 		powerups.add(critclick);
 	}
 	
-	protected void refreshAutoClick() {
-		Thread t1 = new Thread(new Logic());
-		t1.start();
-	}
-	
 	// Click calls 
 	protected void Click() {
 		int power = 1;
@@ -55,12 +49,5 @@ public class Logic implements Runnable{
 	        }
 		
 		addScore(power);
-	}
-
-	@Override
-	public void run() {
-		AutoClick autoclick = new AutoClick(stats.getAutoclickLevel());
-		autoclick.generateScore();
-		Click();
 	}
 }

@@ -2,10 +2,10 @@ package gameV2;
 
 public class Stats {
 	// Variables
-	private volatile int score = 0;
-	private volatile int autoclickLevel = 0;
-	private volatile int powerclickLevel = 1;
-	private volatile int critclickLevel = 0;
+	private int score = 0;
+	private int autoclickLevel = 0;
+	private int powerclickLevel = 1;
+	private int critclickLevel = 0;
 	
 	
 	// Getter and setter
