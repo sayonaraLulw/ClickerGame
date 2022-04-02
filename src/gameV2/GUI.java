@@ -99,7 +99,7 @@ public class GUI extends JFrame implements ActionListener{
 			GUI_Shop(logic.stats.getScore());
 		}
 		else if(e.getSource() == clicker) {
-			logic.Click();
+			logic.click();
 			refreshScore();
 		}
 		else if(e.getSource() == powerUp1) { // Powerclick

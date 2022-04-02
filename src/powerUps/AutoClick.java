@@ -1,19 +1,33 @@
 package powerUps;
 
-public class AutoClick extends PowerUp implements Runnable{
+import java.util.concurrent.TimeUnit;
 
-	public AutoClick(int level) {
-		super(level);
-	}
+import gameV2.Logic;
+
+public class AutoClick extends PowerUp implements Runnable{
 	
-	public int generateScore() {
-		System.out.println(super.getLevel());
-		return super.getLevel();
+	Logic logic;
+
+	public AutoClick(Logic logic, int level) {
+		super(level);
+		this.logic = logic;
 	}
 
 	@Override
 	public void run() {
-		
+		while (true) {
+			for (int i = 0; i <= super.getLevel(); i++ ) {
+				logic.click();
+			}
+			
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
 		
 	}
 

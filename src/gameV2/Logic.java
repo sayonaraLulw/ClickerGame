@@ -4,33 +4,36 @@ import java.util.ArrayList;
 
 import powerUps.*;
 
-public class Logic{
+public class Logic {
 	// Initialize stats
 	Stats stats = new Stats();
 	ArrayList<PowerUp> powerups = new ArrayList<PowerUp>();
 	
 	// Methods
-	protected void addScore(int amount) {
+	public void addScore(int amount) {
 		stats.setScore(stats.getScore() + amount);
 	}
 	
-	protected void removeScore(int amount) {
+	public void removeScore(int amount) {
 		stats.setScore(stats.getScore() - amount);
 	}
 	
-	protected void addPowerclick() {
+	public void addPowerclick() {
 		stats.setPowerclickLevel(stats.getPowerclickLevel() + 1);
 	}
 	
-	protected void addAutoclick() {
+	public void addAutoclick() {
 		stats.setAutoclickLevel(stats.getAutoclickLevel() + 1);
+		AutoClick auto = new AutoClick(this, stats.getAutoclickLevel());
+		Thread t =new Thread(auto);
+		t.start();
 	}
 	
-	protected void addCritclick() {
+	public void addCritclick() {
 		stats.setCritclickLevel(stats.getAutoclickLevel() + 1);
 	}
 	
-	protected void refreshPowerUps() {
+	public void refreshPowerUps() {
 		powerups.clear();
 		PowerClick powerclick = new PowerClick(stats.getPowerclickLevel());
 		CritClick critclick = new CritClick(stats.getCritclickLevel());
@@ -39,7 +42,7 @@ public class Logic{
 	}
 	
 	// Click calls 
-	protected void Click() {
+	public void click() {
 		int power = 1;
 		refreshPowerUps();
 		// Goes in all the PowerUps and calculates the new Power
