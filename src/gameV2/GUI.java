@@ -15,7 +15,7 @@ import javax.swing.SwingConstants;
 @SuppressWarnings("serial")
 public class GUI extends JFrame implements ActionListener{
 	// Initialize logic
-	Logic logic = new Logic();
+	Logic logic = new Logic(this);
 	
 	// Variables Shop
 	JFrame guiShop = new JFrame();
@@ -99,7 +99,6 @@ public class GUI extends JFrame implements ActionListener{
 		}
 		else if(e.getSource() == clicker) {
 			logic.click();
-			refreshScore();
 		}
 		else if(e.getSource() == powerUp1) { // Powerclick
 			logic.addPowerclick();

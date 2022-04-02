@@ -1,7 +1,5 @@
 package powerUps;
 
-import java.util.concurrent.TimeUnit;
-
 import gameV2.Logic;
 
 public class AutoClick extends PowerUp implements Runnable{
@@ -16,7 +14,7 @@ public class AutoClick extends PowerUp implements Runnable{
 	@Override
 	public void run() {
 		while (true) {
-			for (int i = 0; i <= super.getLevel(); i++ ) {
+			for (int i = 1; i <= super.getLevel(); i++ ) {
 				logic.click();
 			}
 			

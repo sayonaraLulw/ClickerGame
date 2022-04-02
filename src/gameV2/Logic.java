@@ -8,6 +8,11 @@ public class Logic {
 	// Initialize stats
 	Stats stats = new Stats();
 	ArrayList<PowerUp> powerups = new ArrayList<PowerUp>();
+	GUI gui;
+	
+	public Logic(GUI gui) {	
+		this.gui = gui;
+	}
 	
 	// Methods
 	public void addScore(int amount) {
@@ -50,7 +55,7 @@ public class Logic {
 			 	PowerUp p = powerups.get(i);
 			 	power = p.getPower(power);;
 	        }
-		
 		addScore(power);
+		gui.refreshScore();
 	}
 }
