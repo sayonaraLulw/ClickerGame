@@ -22,10 +22,10 @@ public class GUI extends JFrame implements ActionListener{
 	JLabel shopScore = new JLabel();
 	JLabel pupLvl1 = new JLabel("Level " + logic.stats.getPowerclickLevel(), SwingConstants.CENTER);
 	JLabel pupLvl2 = new JLabel("Level " + logic.stats.getAutoclickLevel(), SwingConstants.CENTER);
-	JLabel pupLvl3 = new JLabel("Level 1", SwingConstants.CENTER);
+	JLabel pupLvl3 = new JLabel("Level " + logic.stats.getCritclickLevel(), SwingConstants.CENTER);
 	JButton powerUp1 = new JButton("Powerclick");
 	JButton powerUp2 = new JButton("Autoclick");
-	JButton powerUp3 = new JButton("Powerup 3");
+	JButton powerUp3 = new JButton("Critclick");
 	JButton closeShop = new JButton("Close shop");
 	JPanel shopElements = new JPanel();
 	
@@ -103,15 +103,16 @@ public class GUI extends JFrame implements ActionListener{
 			refreshScore();
 		}
 		else if(e.getSource() == powerUp1) { // Powerclick
-			logic.addPower(1);
+			logic.addPowerclick();
 			pupLvl1.setText("Level " + logic.stats.getPowerclickLevel());
 		}
 		else if(e.getSource() == powerUp2) { // Autoclick
-			logic.addAutoclick(1);
+			logic.addAutoclick();
 			pupLvl2.setText("Level " + logic.stats.getAutoclickLevel());
 		}
 		else if(e.getSource() == powerUp3) {
-			
+			logic.addCritclick();
+			pupLvl3.setText("Level " + logic.stats.getCritclickLevel());
 		}
 		else if(e.getSource() == closeShop) {
 			guiShop.dispose();

@@ -17,7 +17,6 @@ public class CritClick extends PowerUp{
 		
 		// Calculate the chance to crit
 		boolean crithit = (rand.nextInt(100) < super.getLevel());
-		System.out.println(crithit);
 		// Calculate the new Power of the click
 		if (crithit == true) {
 			power = power * 2;
