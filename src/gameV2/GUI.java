@@ -2,7 +2,6 @@ package gameV2;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Font;
@@ -39,9 +38,14 @@ public class GUI extends JFrame implements ActionListener{
 	// Variables Game
 	JFrame guiGame = new JFrame();
 	JLabel score = new JLabel("Click Pepe to begin");
-	Icon icon = new ImageIcon(this.getClass().getResource("pepe.png"));
+	Icon icon = new ImageIcon(this.getClass().getResource("rsz_pepe.png"));
 	JButton clicker = new JButton(icon);
 	JButton shop = new JButton("Shop");
+	
+	JPanel currentPowerups = new JPanel();
+	JLabel currentPowerclick = new JLabel("Powerclick Level " + logic.stats.getPowerclickLevel(), SwingConstants.CENTER);
+	JLabel currentAutoclick = new JLabel("Autoclick Level " + logic.stats.getAutoclickLevel(), SwingConstants.CENTER);
+	JLabel currentCritclick = new JLabel("Critclick Level " + logic.stats.getCritclickLevel(), SwingConstants.CENTER);
 	
 	public GUI() {
 		// Set font
@@ -49,6 +53,14 @@ public class GUI extends JFrame implements ActionListener{
 		
 		// Layout
 		guiGame.setLayout(new BorderLayout());
+		currentPowerups.setLayout(new GridLayout(3, 1));
+		
+		// Add for currentPowerups
+		currentPowerups.add(currentPowerclick);
+		currentPowerups.add(currentAutoclick);
+		currentPowerups.add(currentCritclick);
+		guiGame.add(currentPowerups, BorderLayout.EAST);
+		
 		// Add score to NORTH
 		guiGame.add(score, BorderLayout.NORTH);
 		
@@ -126,18 +138,21 @@ public class GUI extends JFrame implements ActionListener{
 			refreshScore();
 			refreshPrices();
 			refreshLevel();
+			refreshCurrentPowerups();
 		}
 		else if(e.getSource() == autoclick) {
 			logic.buyAutoclick();
 			refreshScore();
 			refreshPrices();
 			refreshLevel();
+			refreshCurrentPowerups();
 		}
 		else if(e.getSource() == critclick) {
 			logic.buyCritclick();
 			refreshScore();
 			refreshPrices();
 			refreshLevel();
+			refreshCurrentPowerups();
 		}
 		else if(e.getSource() == closeShop) {
 			guiShop.dispose();
@@ -159,6 +174,12 @@ public class GUI extends JFrame implements ActionListener{
 		powerclickLvl.setText("Level " + logic.stats.getPowerclickLevel());
 		autoclickLvl.setText("Level " + logic.stats.getAutoclickLevel());
 		critclickLvl.setText("Level " + logic.stats.getCritclickLevel());
+	}
+	
+	public void refreshCurrentPowerups() {
+		currentPowerclick.setText("Powerclick Level " + logic.stats.getPowerclickLevel());
+		currentAutoclick.setText("Autoclick Level " + logic.stats.getAutoclickLevel());
+		currentCritclick.setText("Critclick Level " + logic.stats.getCritclickLevel());
 	}
 	
 	// Gives error message if you don't have enough score

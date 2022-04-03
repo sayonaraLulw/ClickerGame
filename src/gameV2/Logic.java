@@ -97,7 +97,7 @@ public class Logic {
 			stats.setScore(stats.getScore() - getPowerclickPrice());
 			addPowerclick();
 			refreshPowerclickPrice();
-		}else {
+		}else if(stats.getScore() < getPowerclickPrice()){
 			gui.notEnoughScore(getPowerclickPrice() - stats.getScore());
 		}
 	}
@@ -107,7 +107,7 @@ public class Logic {
 			stats.setScore(stats.getScore() - getAutoclickPrice());
 			addAutoclick();
 			refreshAutoclickPrice();
-		}else {
+		}else if(stats.getScore() < getAutoclickPrice()){
 			gui.notEnoughScore(getAutoclickPrice() - stats.getScore());
 		}
 	}
@@ -117,7 +117,7 @@ public class Logic {
 			stats.setScore(stats.getScore() - getCritclickPrice());
 			addCritclick();
 			refreshCritclickPrice();
-		}else {
+		}else if(stats.getScore() < getCritclickPrice()){
 			gui.notEnoughScore(getCritclickPrice() - stats.getScore());
 		}
 	}
