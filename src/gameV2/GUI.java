@@ -34,8 +34,8 @@ public class GUI extends JFrame implements ActionListener{
 	// Variables Game
 	JFrame guiGame = new JFrame();
 	JLabel score = new JLabel();
-	Icon icon = new ImageIcon(this.getClass().getResource(""));
-	JButton clicker = new JButton("Click!");
+	Icon icon = new ImageIcon(this.getClass().getResource("pepe.png"));
+	JButton clicker = new JButton(icon);
 	JButton shop = new JButton("Shop");
 	
 	public GUI() {	
