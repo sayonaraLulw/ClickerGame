@@ -60,6 +60,7 @@ public class GUI extends JFrame implements ActionListener{
 		guiGame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		guiGame.setSize(600, 800);
 		guiGame.setVisible(true);
+		guiGame.setResizable(false);
 	}
 	
 	// GUI_Shop
@@ -98,6 +99,7 @@ public class GUI extends JFrame implements ActionListener{
 		guiShop.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		guiShop.setSize(600, 800);
 		guiShop.setVisible(true);
+		guiShop.setResizable(false);
 	}
 	
 	// Button actions
