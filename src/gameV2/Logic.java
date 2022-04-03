@@ -74,7 +74,7 @@ public class Logic {
 		return AutoclickPrice;
 	}
 	
-	public int getCritclick() {
+	public int getCritclickPrice() {
 		return CritclickPrice;
 	}
 	
@@ -97,6 +97,8 @@ public class Logic {
 			stats.setScore(stats.getScore() - getPowerclickPrice());
 			addPowerclick();
 			refreshPowerclickPrice();
+		}else {
+			gui.notEnoughScore(getPowerclickPrice() - stats.getScore());
 		}
 	}
 	
@@ -105,14 +107,18 @@ public class Logic {
 			stats.setScore(stats.getScore() - getAutoclickPrice());
 			addAutoclick();
 			refreshAutoclickPrice();
+		}else {
+			gui.notEnoughScore(getAutoclickPrice() - stats.getScore());
 		}
 	}
 	
 	public void buyCritclick() {
-		if(stats.getScore() >= getCritclick()) {
-			stats.setScore(stats.getScore() - getCritclick());
+		if(stats.getScore() >= getCritclickPrice()) {
+			stats.setScore(stats.getScore() - getCritclickPrice());
 			addCritclick();
 			refreshCritclickPrice();
+		}else {
+			gui.notEnoughScore(getCritclickPrice() - stats.getScore());
 		}
 	}
 }

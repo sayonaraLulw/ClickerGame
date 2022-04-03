@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Font;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -27,21 +28,23 @@ public class GUI extends JFrame implements ActionListener{
 	JLabel critclickLvl = new JLabel("Level " + logic.stats.getCritclickLevel(), SwingConstants.CENTER);
 	JButton powerclick = new JButton("Powerclick - Price: " + logic.getPowerclickPrice());
 	JButton autoclick = new JButton("Autoclick - Price: " + logic.getAutoclickPrice());
-	JButton critclick = new JButton("Critclick - Price: " + logic.getCritclick());
-	JButton closeShop = new JButton();
+	JButton critclick = new JButton("Critclick - Price: " + logic.getCritclickPrice());
+	JButton closeShop = new JButton("Close shop");
 	JPanel shopElements = new JPanel();
 	
 	// Variables Game
 	JFrame guiGame = new JFrame();
-	JLabel score = new JLabel();
+	JLabel score = new JLabel("Click Pepe to begin");
 	Icon icon = new ImageIcon(this.getClass().getResource("pepe.png"));
 	JButton clicker = new JButton(icon);
 	JButton shop = new JButton("Shop");
 	
-	public GUI() {	
+	public GUI() {
+		// Set font
+		score.setFont(new Font("Arial", Font.BOLD, 20));
+		
 		// Layout
 		guiGame.setLayout(new BorderLayout());
-		
 		// Add score to NORTH
 		guiGame.add(score, BorderLayout.NORTH);
 		
@@ -53,7 +56,6 @@ public class GUI extends JFrame implements ActionListener{
 		shop.addActionListener(this);
 		guiGame.add(shop, BorderLayout.SOUTH);
 		
-		
 		// Default swing options
 		guiGame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		guiGame.setSize(600, 800);
@@ -62,6 +64,9 @@ public class GUI extends JFrame implements ActionListener{
 	
 	// GUI_Shop
 	public void GUI_Shop(int score) {
+		// Set font
+		shopScore.setFont(new Font("Arial", Font.BOLD, 20));
+		
 		// Set layout
 		guiShop.setLayout(new BorderLayout());
 		shopElements.setLayout(new GridLayout(3, 2));
@@ -135,7 +140,7 @@ public class GUI extends JFrame implements ActionListener{
 	public void refreshPrices() {
 		powerclick.setText("Powerclick - Price: " + logic.getPowerclickPrice());
 		autoclick.setText("Autoclick - Price: " + logic.getAutoclickPrice());
-		critclick.setText("Critclick - Price: " + logic.getCritclick());
+		critclick.setText("Critclick - Price: " + logic.getCritclickPrice());
 	}
 	
 	public void refreshLevel() {
