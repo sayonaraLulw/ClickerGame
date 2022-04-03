@@ -20,13 +20,13 @@ public class GUI extends JFrame implements ActionListener{
 	// Variables Shop
 	JFrame guiShop = new JFrame();
 	JLabel shopScore = new JLabel();
-	JLabel pupLvl1 = new JLabel("Level " + logic.stats.getPowerclickLevel(), SwingConstants.CENTER);
-	JLabel pupLvl2 = new JLabel("Level " + logic.stats.getAutoclickLevel(), SwingConstants.CENTER);
-	JLabel pupLvl3 = new JLabel("Level " + logic.stats.getCritclickLevel(), SwingConstants.CENTER);
-	JButton powerUp1 = new JButton("Powerclick");
-	JButton powerUp2 = new JButton("Autoclick");
-	JButton powerUp3 = new JButton("Critclick");
-	JButton closeShop = new JButton("Close shop");
+	JLabel powerclickLvl = new JLabel("Level " + logic.stats.getPowerclickLevel(), SwingConstants.CENTER);
+	JLabel autoclickLvl = new JLabel("Level " + logic.stats.getAutoclickLevel(), SwingConstants.CENTER);
+	JLabel critclickLvl = new JLabel("Level " + logic.stats.getCritclickLevel(), SwingConstants.CENTER);
+	JButton powerclick = new JButton("Powerclick - Price: " + logic.getPowerclickPrice());
+	JButton autoclick = new JButton("Autoclick - Price: " + logic.getAutoclickPrice());
+	JButton critclick = new JButton("Critclick - Price: " + logic.getCritclick());
+	JButton closeShop = new JButton();
 	JPanel shopElements = new JPanel();
 	
 	// Variables Game
@@ -68,16 +68,16 @@ public class GUI extends JFrame implements ActionListener{
 		guiShop.add(shopScore, BorderLayout.NORTH);
 		
 		// Shop elements
-		shopElements.add(powerUp1);
-		shopElements.add(pupLvl1);
-		shopElements.add(powerUp2);
-		shopElements.add(pupLvl2);
-		shopElements.add(powerUp3);
-		shopElements.add(pupLvl3);
+		shopElements.add(powerclick);
+		shopElements.add(powerclickLvl);
+		shopElements.add(autoclick);
+		shopElements.add(autoclickLvl);
+		shopElements.add(critclick);
+		shopElements.add(critclickLvl);
 		
-		powerUp1.addActionListener(this);
-		powerUp2.addActionListener(this);
-		powerUp3.addActionListener(this);
+		powerclick.addActionListener(this);
+		autoclick.addActionListener(this);
+		critclick.addActionListener(this);
 		
 		// ActionListener
 		closeShop.addActionListener(this);
@@ -99,19 +99,25 @@ public class GUI extends JFrame implements ActionListener{
 		}
 		else if(e.getSource() == clicker) {
 			logic.click();
-			goldenClick.setVisible(true);
+			//goldenClick.setVisible(true);
 		}
-		else if(e.getSource() == powerUp1) { // Powerclick
-			logic.addPowerclick();
-			pupLvl1.setText("Level " + logic.stats.getPowerclickLevel());
+		else if(e.getSource() == powerclick) {
+			logic.buyPowerclick();
+			refreshScore();
+			refreshPrices();
+			refreshLevel();
 		}
-		else if(e.getSource() == powerUp2) { // Autoclick
-			logic.addAutoclick();
-			pupLvl2.setText("Level " + logic.stats.getAutoclickLevel());
+		else if(e.getSource() == autoclick) {
+			logic.buyAutoclick();
+			refreshScore();
+			refreshPrices();
+			refreshLevel();
 		}
-		else if(e.getSource() == powerUp3) {
-			logic.addCritclick();
-			pupLvl3.setText("Level " + logic.stats.getCritclickLevel());
+		else if(e.getSource() == critclick) {
+			logic.buyCritclick();
+			refreshScore();
+			refreshPrices();
+			refreshLevel();
 		}
 		else if(e.getSource() == closeShop) {
 			guiShop.dispose();
@@ -121,6 +127,18 @@ public class GUI extends JFrame implements ActionListener{
 	public void refreshScore() {
 		score.setText("Score: " + String.valueOf(logic.stats.getScore()));
 		shopScore.setText("Shop - Score: " + String.valueOf(logic.stats.getScore()));
+	}
+	
+	public void refreshPrices() {
+		powerclick.setText("Powerclick - Price: " + logic.getPowerclickPrice());
+		autoclick.setText("Autoclick - Price: " + logic.getAutoclickPrice());
+		critclick.setText("Critclick - Price: " + logic.getCritclick());
+	}
+	
+	public void refreshLevel() {
+		powerclickLvl.setText("Level " + logic.stats.getPowerclickLevel());
+		autoclickLvl.setText("Level " + logic.stats.getAutoclickLevel());
+		critclickLvl.setText("Level " + logic.stats.getCritclickLevel());
 	}
 	
 	// Gives error message if you don't have enough score

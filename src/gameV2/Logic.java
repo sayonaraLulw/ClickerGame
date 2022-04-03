@@ -10,6 +10,11 @@ public class Logic {
 	ArrayList<PowerUp> powerups = new ArrayList<PowerUp>();
 	GUI gui;
 	
+	// Shop
+	private int PowerclickPrice = (stats.getPowerclickLevel()*100+100);
+	private int AutoclickPrice = (stats.getAutoclickLevel()*500+500);
+	private int CritclickPrice = (stats.getCritclickLevel()*100+100);
+	
 	public Logic(GUI gui) {	
 		this.gui = gui;
 	}
@@ -58,5 +63,56 @@ public class Logic {
 	        }
 		addScore(power);
 		gui.refreshScore();
+	}
+	
+	// Shop price getters
+	public int getPowerclickPrice() {
+		return PowerclickPrice;
+	}
+	
+	public int getAutoclickPrice() {
+		return AutoclickPrice;
+	}
+	
+	public int getCritclick() {
+		return CritclickPrice;
+	}
+	
+	// Shop refresh prices
+	public void refreshPowerclickPrice() {
+		PowerclickPrice = (stats.getPowerclickLevel())*100+100;
+	}
+	
+	public void refreshAutoclickPrice() {
+		AutoclickPrice = (stats.getAutoclickLevel())*500+500;
+	}
+	
+	public void refreshCritclickPrice() {
+		CritclickPrice = (stats.getCritclickLevel())*100+100;
+	}
+	
+	// Shop - Buying
+	public void buyPowerclick() {
+		if(stats.getScore() >= getPowerclickPrice()) {
+			stats.setScore(stats.getScore() - getPowerclickPrice());
+			addPowerclick();
+			refreshPowerclickPrice();
+		}
+	}
+	
+	public void buyAutoclick() {
+		if(stats.getScore() >= getAutoclickPrice()) {
+			stats.setScore(stats.getScore() - getAutoclickPrice());
+			addAutoclick();
+			refreshAutoclickPrice();
+		}
+	}
+	
+	public void buyCritclick() {
+		if(stats.getScore() >= getCritclick()) {
+			stats.setScore(stats.getScore() - getCritclick());
+			addCritclick();
+			refreshCritclickPrice();
+		}
 	}
 }
