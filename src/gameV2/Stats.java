@@ -6,6 +6,7 @@ public class Stats {
 	private int autoclickLevel = 0;
 	private int powerclickLevel = 1;
 	private int critclickLevel = 0;
+	private boolean goldenclick = false;
 	
 	
 	// Getter and setter
@@ -32,5 +33,11 @@ public class Stats {
 	}
 	public void setCritclickLevel(int critclickLevel) {
 		this.critclickLevel = critclickLevel;
+	}
+	public boolean isGoldenclick() {
+		return goldenclick;
+	}
+	public void setGoldenclick(boolean goldenclick) {
+		this.goldenclick = goldenclick;
 	}
 }

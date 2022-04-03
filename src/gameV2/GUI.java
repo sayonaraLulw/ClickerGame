@@ -35,7 +35,6 @@ public class GUI extends JFrame implements ActionListener{
 	JButton clicker = new JButton("Click!");
 	JButton shop = new JButton("Shop");
 	
-	
 	public GUI() {	
 		// Layout
 		guiGame.setLayout(new BorderLayout());
@@ -50,6 +49,7 @@ public class GUI extends JFrame implements ActionListener{
 		// Add upgrade button to SOUTH
 		shop.addActionListener(this);
 		guiGame.add(shop, BorderLayout.SOUTH);
+		
 		
 		// Default swing options
 		guiGame.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -99,6 +99,7 @@ public class GUI extends JFrame implements ActionListener{
 		}
 		else if(e.getSource() == clicker) {
 			logic.click();
+			goldenClick.setVisible(true);
 		}
 		else if(e.getSource() == powerUp1) { // Powerclick
 			logic.addPowerclick();

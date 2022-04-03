@@ -11,13 +11,10 @@ public class AutoClick extends PowerUp implements Runnable{
 		this.logic = logic;
 	}
 
-	@Override
+	// clicks every second while true
 	public void run() {
 		while (true) {
-			for (int i = 1; i <= super.getLevel(); i++ ) {
-				logic.click();
-			}
-			
+			logic.click(); 
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {

@@ -27,6 +27,7 @@ public class Logic {
 		stats.setPowerclickLevel(stats.getPowerclickLevel() + 1);
 	}
 	
+	// creates a new Autoclick class inside a new thread.
 	public void addAutoclick() {
 		stats.setAutoclickLevel(stats.getAutoclickLevel() + 1);
 		AutoClick auto = new AutoClick(this, stats.getAutoclickLevel());
@@ -35,9 +36,9 @@ public class Logic {
 	}
 	
 	public void addCritclick() {
-		stats.setCritclickLevel(stats.getAutoclickLevel() + 1);
+		stats.setCritclickLevel(stats.getCritclickLevel()+ 1);
 	}
-	
+	// Refreshes the powerups by deleting the old one and creating them new with the current variables
 	public void refreshPowerUps() {
 		powerups.clear();
 		PowerClick powerclick = new PowerClick(stats.getPowerclickLevel());
